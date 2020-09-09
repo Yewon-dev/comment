@@ -33,7 +33,8 @@ header {
   flex-direction: row;
   width: 100%;
   height: 10%;
-  background-color: #092e20;
+  background-color: #8EC5FC;
+  background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
   color: white;
 }
 
@@ -62,7 +63,7 @@ section {
 /* footer */
 
 footer {
-  background-color: #44b78b;
+  background-color: #8EC5FC;
   width: 100%;
   display: flex;
   align-items: center;
@@ -77,7 +78,7 @@ footer p {
 /* 공통 요소 */
 
 h3 {
-  color: #0c4b33;
+  color: #2474c5;
   font-size: 2rem;
 }
 
@@ -91,7 +92,7 @@ h3 {
   display: flex;
   align-items: center;
   flex-direction: column;
-  border: 1px dashed #092e20;
+  border: 1px dashed #2474c5;
   margin: 1em 1em;
 }
 
@@ -102,7 +103,7 @@ h3 {
 }
 .home a {
   all: unset;
-  color: #0c4b33;
+  color: #2474c5;
   font-size: 2rem;
   cursor: pointer;
 }
@@ -150,13 +151,13 @@ h3 {
 }
 .btn a {
   all: unset;
-  color: gray;
+  color: #afc9e2;
   margin: 1rem;
   cursor: pointer;
   font-weight: bolder;
 }
 .btn a:hover {
-  color: #44b78b;
+  color: #E0C3FC;
 }
 
 .detail p {
@@ -173,14 +174,14 @@ form {
 
 input {
   background-color: white;
-  color: #44b78b;
-  border: 1px solid #44b78b;
+  color: #E0C3FC;
+  border: 1px solid #E0C3FC;
   border-radius: 5px;
   font-size: 12pt;
 }
 
 input:hover {
-  background-color: #44b78b;
+  background-color: #E0C3FC;
   color: white;
-  border: 1px solid #44b78b;
+  border: 1px solid #E0C3FC;
 }
