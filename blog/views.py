@@ -61,7 +61,7 @@ def comment_update(request, pk):
         form = CommentForm(instance=comment)
     return render(request, 'blog/comment_update.html',{'form':form})
 
-'''
+
 def comment_delete(request, pk):
     comment = get_object_or_404(Comment, pk=pk)
     blog = get_object_or_404(Blog, pk=comment.blog.id)
@@ -71,5 +71,4 @@ def comment_delete(request, pk):
         return redirect('/blog/'+str(blog.id))
     else:
         return render(request, 'blog/comment_delete.html',{'object':comment})
-'''
-        
+
