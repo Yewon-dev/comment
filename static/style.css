@@ -192,7 +192,8 @@ form {
 }
 
 
-input {
+input,
+button {
   background-color: white;
   color: #E0C3FC;
   border: 1px solid #E0C3FC;
@@ -200,7 +201,8 @@ input {
   font-size: 12pt;
 }
 
-input:hover {
+input:hover,
+button:hover {
   background-color: #E0C3FC;
   color: white;
   border: 1px solid #E0C3FC;
