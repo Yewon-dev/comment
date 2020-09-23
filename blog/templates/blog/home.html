@@ -1,14 +1,65 @@
-{% extends 'base.html' %} {% block content %} 
-
-{% if request.user.is_authenticated %}
+<!DOCTYPE html>
+<html>
+<head>
+  {% extends 'base.html' %} {% block content %} 
+</head>
+<body>
+  {% if request.user.is_authenticated %}
           <h1>안녕하세요 {{ user.username }}님✨</h1>
-{% endif%}
+  {% endif%}
 
-{% for post in blogs.all %}
-<div class="home">
-  <h3><a href="{% url 'detail' post.pk %}">{{post.title}}</a></h3>
-  <p class="preview">[미리 보기]</p>
-  <p>{{post.summary}}</p>
-  <p class="date">{{post.date | date:"Y년 n월 j일 G시 i분" }}</p>
-</div>
-{% endfor %} {% endblock %}
+  {% for post in blogs.all %}
+  <div class="home">
+    <h3><a href="{% url 'detail' post.pk %}">{{post.title}}</a></h3>
+    <p class="preview">[미리 보기]</p>
+    <p>{{post.summary}}</p>
+    <p class="date">{{post.date | date:"Y년 n월 j일 G시 i분" }}</p>
+  </div>
+  {% endfor %} 
+<br><br><br>
+  <div id="map" style="width:1200px; height:400px; margin:40px; position: center;"></div>
+<br><br><br>
+  <script type="text/javascript" 
+          src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e41d8057e269c52fec102da9882c813d&libraries=services">
+  </script>
+
+<script>
+var mapContainer = document.getElementById('map'),
+    mapOption={
+        center: new kakao.maps.LatLng(33.450701, 126.570667),
+        level: 3
+    };
+var map = new kakao.maps.Map(mapContainer,mapOption);
+
+var mapTypeControl = new kakao.maps.MapTypeControl();
+map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT);
+
+var zoomControl = new kakao.maps.ZoomControl();
+map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
+
+var geocoder = new kakao.maps.services.Geocoder();
+
+geocoder.addressSearch('서울특별시 도봉구 삼양로 144길 33 덕성여자대학교', function(result, status){
+
+  if (status === kakao.maps.services.Status.OK){
+
+    var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+
+    var marker = new kakao.maps.Marker({
+      map: map,
+      position: coords
+    });
+
+    var infowindow = new kakao.maps.InfoWindow({
+      content: '<div style="width:150px; text-align:center; padding:6px 0;">덕성여대</div>'
+    });
+    infowindow.open(map, marker);
+
+    map.setCenter(coords);
+  }
+});
+
+</script>
+</body>
+{% endblock %}
+</html>
